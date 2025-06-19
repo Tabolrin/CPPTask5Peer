@@ -12,11 +12,11 @@ int main(int argc, char* argv[])
 {
     Item** inventory = new Item*[DEFAULT_ITEM_COUNT];
     int i = 0;
-    
+
     do
     {
         int itemType;
-        
+
         cout << "Please choose an item to add to your inventory:" << endl;
         cout << "1. Weapon" << endl;
         cout << "2. Health Potion" << endl;
@@ -26,64 +26,63 @@ int main(int argc, char* argv[])
 
         switch (itemType)
         {
-            case 1:
+        case 1:
             {
                 string weaponName;
                 float weaponDamage;
-            
+
                 cout << "Enter the name of the weapon: ";
                 getline(cin, weaponName);
-                cin.ignore();
-            
+
                 cout << "Enter the damage of the weapon: ";
                 cin >> weaponDamage;
                 cin.ignore();
-            
+
                 Weapon* weapon = new Weapon(weaponName, weaponDamage);
 
                 inventory[i] = dynamic_cast<Item*>(weapon);
                 ++i;
-                    
+
                 break;
             }
 
-            case 2:
+        case 2:
             {
                 string potionName;
                 int healAmount;
-            
+
                 cout << "Enter the name of the health potion: ";
                 getline(cin, potionName);
-                cin.ignore();
-            
+
                 cout << "Enter the heal amount of the health potion: ";
                 cin >> healAmount;
                 cin.ignore();
-            
+
                 HealthPotion* potion = new HealthPotion(potionName, healAmount);
 
                 inventory[i] = dynamic_cast<Item*>(potion);
                 ++i;
-                    
+
                 break;
             }
 
-            default:
+        default:
             {
-                cout << "Invalid item type!" << endl;   
+                cout << "Invalid item type!" << endl;
             }
         }
-    }while (i < DEFAULT_ITEM_COUNT);
+    }
+    while (i < DEFAULT_ITEM_COUNT);
 
-    for (int j = 0; j < DEFAULT_ITEM_COUNT; ++j) 
+    for (int j = 0; j < DEFAULT_ITEM_COUNT; ++j)
         inventory[j]->DisplayInfo();
-    
+
 
     Character player("Player", 100);
     Character enemy("Enemy", 100);
 
     int j = 0;
-    
+
     do
     {
         string target;
@@ -102,14 +101,14 @@ int main(int argc, char* argv[])
         }
         else
             cout << "Invalid target." << endl;
-        
-    }while (j < DEFAULT_ITEM_COUNT);
+    }
+    while (j < DEFAULT_ITEM_COUNT);
 
-    
-    for (int i = 0; i < DEFAULT_ITEM_COUNT; ++i) 
+
+    for (int i = 0; i < DEFAULT_ITEM_COUNT; ++i)
         delete inventory[i];
-    
+
     delete[] inventory;
-    
+
     return 0;
 }
