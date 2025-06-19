@@ -8,7 +8,7 @@ using namespace std;
 
 HealthPotion::HealthPotion(string itemName, int healAmount) : Item(itemName), HealAmount(healAmount) {}
 
-void HealthPotion::DisplayInfo() override { cout << name << " Healed for: " << HealAmount << " HP" << endl; }
+void HealthPotion::DisplayInfo() { cout << name << " Healed for: " << HealAmount << " HP" << endl; }
 
 void HealthPotion::ActOn(Character& character)
 {

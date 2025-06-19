@@ -7,6 +7,9 @@
 using namespace std;
 
 #define DEFAULT_ITEM_COUNT 3
+static void LongDivider();
+static void ShortDivider();
+
 
 int main(int argc, char* argv[])
 {
@@ -71,12 +74,16 @@ int main(int argc, char* argv[])
                 cout << "Invalid item type!" << endl;
             }
         }
+        ShortDivider();
     }
     while (i < DEFAULT_ITEM_COUNT);
+    
+    LongDivider();
 
     for (int j = 0; j < DEFAULT_ITEM_COUNT; ++j)
         inventory[j]->DisplayInfo();
 
+    LongDivider();
 
     Character player("Player", 100);
     Character enemy("Enemy", 100);
@@ -100,7 +107,11 @@ int main(int argc, char* argv[])
             ++j;
         }
         else
+        {
             cout << "Invalid target." << endl;
+        }
+
+        ShortDivider();
     }
     while (j < DEFAULT_ITEM_COUNT);
 
@@ -111,4 +122,14 @@ int main(int argc, char* argv[])
     delete[] inventory;
 
     return 0;
+}
+
+static void LongDivider()
+{
+    cout << endl << "----------------------------------------" << endl;
+}
+
+static void ShrotDivider()
+{
+    cout << endl << "-----------------" << endl;
 }

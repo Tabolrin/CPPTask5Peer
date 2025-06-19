@@ -8,7 +8,7 @@ using namespace std;
 
 Weapon::Weapon (string itemName, float weaponDamage) : Item(itemName), damage(weaponDamage) {}
     
-void Weapon::DisplayInfo() override { cout << name << " Dealt Damage for: " << damage << " HP" << endl; }
+void Weapon::DisplayInfo() { cout << name << " Dealt Damage for: " << damage << " HP" << endl; }
 
 void Weapon::ActOn(Character& character)
 {
